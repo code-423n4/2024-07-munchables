@@ -1,0 +1,21 @@
+
+[profile.default]
+solc = "0.8.25"
+src = "src/"
+out = "out"
+optimizer = true
+optimizer_runs = 2000
+fs_permissions = [{ access = "read-write", path = "./"}]
+viaIR = true
+libs = ["node_modules", "lib"]
+
+[profile.githubci]
+solc = "0.8.25"
+src = "src/"
+out = "out"
+optimizer = true
+optimizer_runs = 2000
+fs_permissions = [{ access = "read-write", path = "./"}]
+viaIR = true
+libs = ["node_modules", "lib"]
+no-match-test = "localOnly"

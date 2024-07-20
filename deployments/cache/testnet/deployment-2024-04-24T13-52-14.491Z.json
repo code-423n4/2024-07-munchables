@@ -1,0 +1,120 @@
+{
+  "timestamp": "2024-04-24T13-52-14.491Z",
+  "roles": {
+    "accountManagerProxy": {
+      "1": "0x84C3Efe8b915Ece5219E2bA87177a9bD18dbd14D",
+      "6": "0x84C3Efe8b915Ece5219E2bA87177a9bD18dbd14D"
+    },
+    "claimManagerProxy": {
+      "17": "0x84C3Efe8b915Ece5219E2bA87177a9bD18dbd14D"
+    },
+    "lockManager": {
+      "11": "0x84C3Efe8b915Ece5219E2bA87177a9bD18dbd14D"
+    },
+    "rewardsManager": {
+      "19": "0x84C3Efe8b915Ece5219E2bA87177a9bD18dbd14D"
+    },
+    "munchNFT": {
+      "20": "0x84C3Efe8b915Ece5219E2bA87177a9bD18dbd14D"
+    }
+  },
+  "selfHostProxy": true,
+  "contracts": {
+    "configStorage": {
+      "address": "0xe77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "hash": "0xe537890745dcaba03fbeee8ad54a826a41c6502bd07765be945369c55955c0ae",
+      "constructorByteCode": null,
+      "startBlock": 4639945
+    },
+    "accountManagerRoot": {
+      "address": "0x393afa6651a7650b3629cdfe93bd88a10e34f48e",
+      "hash": "0xde1c9ebc5ad6330f44d9b3189926f38deb5abdc3394b9022d58638117b3c0d53",
+      "constructorByteCode": null,
+      "startBlock": 4639948
+    },
+    "accountManagerProxy": {
+      "address": "0xa4c65c2cb85e17a5288d29abf69344948fa0ab2e",
+      "hash": "0xad7095160d0eb494a5ae0bdb71596df261eb41bf2d6249dcd61509154b8bed07",
+      "constructorByteCode": "0x000000000000000000000000393afa6651a7650b3629cdfe93bd88a10e34f48e00000000000000000000000017a13d87cfef4bbbf2e1ca5f7c7c524abdac926600000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000024c4d66de8000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d00000000000000000000000000000000000000000000000000000000",
+      "startBlock": 4639949
+    },
+    "claimManagerRoot": {
+      "address": "0x2ed30542ecff9b78985b782bfb74fd276d00656f",
+      "hash": "0xdab405dfa68fcf7aa2885a506351a9d19fb78bbd6c2801696e90f3605c89ca34",
+      "constructorByteCode": null,
+      "startBlock": 4639952
+    },
+    "claimManagerProxy": {
+      "address": "0x98df9ae6420caf20f9ad903cdcbb9c01f38246c8",
+      "hash": "0x7ddaecc764655d80b38001509cc0e28384d91bbaa51c7ab672f8ac993fe01e73",
+      "constructorByteCode": "0x0000000000000000000000002ed30542ecff9b78985b782bfb74fd276d00656f00000000000000000000000017a13d87cfef4bbbf2e1ca5f7c7c524abdac926600000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000024c4d66de8000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d00000000000000000000000000000000000000000000000000000000",
+      "startBlock": 4639954
+    },
+    "lockManager": {
+      "address": "0x4112a2f1e8dc72816d5a916797a8f9c738276585",
+      "hash": "0xa5991b0e77d493451f30ccc6f9cc10bca8d9eddb0b14942896d3fb2748057978",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639955
+    },
+    "migrationManager": {
+      "address": "0x2e93f63cb7bf2dddd74fcec1673f412034b387a4",
+      "hash": "0x288797782e7fb3b8c68e35c242ca2722b9fba42b3ed425f52ecc06bcebe85cc1",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639958
+    },
+    "snuggeryManager": {
+      "address": "0x186913229f50e8eda68c7c1b1a484283e514b3e8",
+      "hash": "0x4a3ea8a42720c5c039a3d2d90d986287b51981a19a71af683f26caebff72a40f",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639956
+    },
+    "munchadexManager": {
+      "address": "0xca1513fcb41e4f57afaf6de1727a23f1861e699a",
+      "hash": "0xd766d0a51bbd4e35c503e051aa3514f9650a30149c0569825346290df635096d",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639957
+    },
+    "nftAttributesManagerV1": {
+      "address": "0x3fb756146ade34889b5ed6fcc2150d48cadae988",
+      "hash": "0x0557379494eb9d6d3d6140b71353c773677826cae77d7e989bde20757a1bfd38",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639959
+    },
+    "rewardsManager": {
+      "address": "0x6a8be3a12d44123caa4c2cd701a199491e5acd97",
+      "hash": "0x905a50033b24dcbcf35a4af18a5ddab35e18fba49c6b258c57a6ff265abb0686",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639947
+    },
+    "munchNFT": {
+      "address": "0x57362243a2b94c8b4a7556792d6a9eb25c2f380c",
+      "hash": "0x05e44c598ae1a2a28ee18378f309368570ae1116801cc7809dc435f0f3ee2e74",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000000000e4d756e636861626c6573204e465400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000094d554e43485f4e46540000000000000000000000000000000000000000000000",
+      "startBlock": 4639961
+    },
+    "fundTreasuryDistributor": {
+      "address": "0x3909dca55635f3d621996d90cf9ad4d24070fcaf",
+      "hash": "0xd8005b874f002c114dcecd03d78535111ab2e627128c6530c5bd5b3c3c608be5",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639962
+    },
+    "rngProxySelfHosted": {
+      "address": "0x005485d9c6e113bc002f0503c14452a1ad1819f5",
+      "hash": "0xe39d2a0fb15b46134eb3f9b8833920878cb8c965501d4e1156e83312816e58a6",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639964
+    },
+    "bonusManager": {
+      "address": "0xbb50948ffd5d2ec79f6e4191345bcc06ab82cecc",
+      "hash": "0x0d13ba43aa0dd53ca216e90f7f91c794bf602f0471ce7d61b040e04731cb8745",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639950
+    },
+    "primordialManager": {
+      "address": "0xaf724e761e6018e3b1737407b97c5228dc87244c",
+      "hash": "0x7f654d6a77fd9e07b6c94bdfc6b44b75bdfdd88a2a5efd4598f43c699fe2a968",
+      "constructorByteCode": "0x000000000000000000000000e77be37367b81f1deafcc5c79d06e4b870eb626d",
+      "startBlock": 4639963
+    }
+  }
+}
