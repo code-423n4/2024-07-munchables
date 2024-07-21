@@ -27,7 +27,7 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 ## Links
 
-- **Previous audits:** N/A
+- **Previous audits:** [C4 audit for `LockManager`](https://github.com/code-423n4/2024-05-munchables/)
 - **Documentation:**
 - **Website:** https://www.munchables.app/
 - **X/Twitter:** [@_munchables_](https://x.com/_munchables_)
@@ -63,7 +63,7 @@ _See [out_of_scope.txt](https://github.com/code-423n4/2024-07-munchables/blob/ma
 | ERC721 used by the protocol             | Munchable NFTs                                                          |
 | ERC777 used by the protocol             | None                                                                    |
 | ERC1155 used by the protocol            | None                                                                    |
-| Chains the protocol will be deployed on | OtherBlast ✅                                                           |
+| Chains the protocol will be deployed on | Blast                                                                   |
 
 ### External integrations (e.g., Uniswap) behavior in scope:
 
