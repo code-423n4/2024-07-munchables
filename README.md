@@ -29,9 +29,9 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 - **Previous audits:** N/A
 - **Documentation:**
-- **Website:** ⭐️ CA: add a link to the sponsor's website
-- **X/Twitter:** ⭐️ CA: add a link to the sponsor's Twitter
-- **Discord:** ⭐️ CA: add a link to the sponsor's Discord
+- **Website:** https://www.munchables.app/
+- **X/Twitter:** [@_munchables_](https://x.com/_munchables_)
+- **Discord:** https://discord.com/invite/munchables
 
 ---
 
