@@ -34,7 +34,7 @@ Once in a snuggery, a Munchable can start earning rewards for that player. A var
 
 - **Previous audits:** [C4 audit for `LockManager`](https://github.com/code-423n4/2024-05-munchables/)
 - [Nethermind audit](https://2940425202-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FTntovqRqNnTMbN2jq0Oh%2Fuploads%2Fv8NSqjP7Bg0Ej4yCYmh2%2FNM_0236_Munchables_Final.pdf?alt=media&token=63cf2154-cbf7-4855-86d0-0b7427b73d07)
-- **Documentation:** [/guides/*.md](https://github.com/code-423n4/2024-05-munchables/tree/main/guides)
+- **Documentation:** [/guides/\*.md](https://github.com/code-423n4/2024-05-munchables/tree/main/guides)
 - **Website:** https://www.munchables.app/
 - **X/Twitter:** [@_munchables_](https://x.com/_munchables_)
 - **Discord:** https://discord.com/invite/munchables
@@ -108,11 +108,11 @@ All Admin roles are trusted. Every role in ConfigStorage is trusted.
 
 ✅ SCOUTS: Please format the response above 👆 using the template below👇
 
-| Role          | Description     |
-| ------------- | --------------- |
-| Owner         | Can upgrade contract |
-| Landlord | Can change their own tax rate |
-| Rentor | Can stake Munchable on Landlord's land to toil |
+| Role     | Description                                    |
+| -------- | ---------------------------------------------- |
+| Owner    | Can upgrade contract                           |
+| Landlord | Can change their own tax rate                  |
+| Rentor   | Can stake Munchable on Landlord's land to toil |
 
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
 
@@ -135,14 +135,12 @@ cp .env.example .env
 
 nvm install && nvm use
 pnpm install
-pnpm build
+pnpm build:abi
 
 # This currently runs only tests for LandManager
 # to run all tests modify the line here: https://github.com/code-423n4/2024-07-munchables/blob/main/tests/run.ts#L10
 pnpm test:typescript
 
-# note that some tests might fail
-pnpm test:solidity
 ```
 
 ## Miscellaneous
