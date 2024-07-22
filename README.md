@@ -104,9 +104,7 @@ The biggest concerns are people being able to unstake a different individual's M
 
 ## All trusted roles in the protocol
 
-All Admin roles are trusted. Every role in ConfigStorage is trusted.
 
-✅ SCOUTS: Please format the response above 👆 using the template below👇
 
 | Role     | Description                                    |
 | -------- | ---------------------------------------------- |
@@ -129,9 +127,6 @@ Dependecies:
 git clone https://github.com/code-423n4/2024-07-munchables
 cd 2024-07-munchables
 
-cp .env.example .env
-# fill out the `PRIVATE_KEY` field in the `.env` file with a priavet key (in hex format `0x...`)
-# Example script to create private key: https://gist.github.com/0xA5DF/3618fd9577777b30305442430bec800d
 
 nvm install && nvm use
 pnpm install
