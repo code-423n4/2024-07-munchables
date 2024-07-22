@@ -6,7 +6,8 @@ import { spec } from "node:test/reporters";
 import { anvilDefault } from "./utils/consts";
 import { getTestContracts } from "./utils/contracts";
 
-let testGlob = "**/*.test.ts"; // Default test glob
+// let testGlob = "**/*.test.ts"; // Default test glob
+let testGlob = "**/LandManager/*.test.ts"; // run only LoanManager tests
 if (process.argv[2]) {
   testGlob = process.argv[2] + ".test.ts";
 }

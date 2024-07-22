@@ -120,7 +120,13 @@ cp .env.example .env
 nvm install && nvm use
 pnpm install
 pnpm build
-pnpm test
+
+# This currently runs only tests for LandManager
+# to run all tests modify the line here: https://github.com/code-423n4/2024-07-munchables/blob/main/tests/run.ts#L10
+pnpm test:typescript
+
+# note that some tests might fail
+pnpm test:solidity
 ```
 
 To run code coverage
