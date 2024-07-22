@@ -23,12 +23,18 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 # Overview
 
-[ ⭐️ SPONSORS: add info here ]
+Munchables is a GameFi project with a twist.
+
+The objective of the game is to earn as many Munch Points as possible. In crypto terms, you could call this "point farming".
+
+Built on top of Blast, Munchables leverages the unique on-chain primitives to create a reward-filled journey. Players collect Munchables and keep them safe, fed and comfortable in their snuggery.
+Once in a snuggery, a Munchable can start earning rewards for that player. A variety of factors influence the rewards earned, so players will have to be smart when choosing which Munchables to put in their snuggery and the strategies they use to play the game.
 
 ## Links
 
 - **Previous audits:** [C4 audit for `LockManager`](https://github.com/code-423n4/2024-05-munchables/)
-- **Documentation:**
+- [Nethermind audit](https://2940425202-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FTntovqRqNnTMbN2jq0Oh%2Fuploads%2Fv8NSqjP7Bg0Ej4yCYmh2%2FNM_0236_Munchables_Final.pdf?alt=media&token=63cf2154-cbf7-4855-86d0-0b7427b73d07)
+- **Documentation:** [/guides/*.md](https://github.com/code-423n4/2024-05-munchables/tree/main/guides)
 - **Website:** https://www.munchables.app/
 - **X/Twitter:** [@_munchables_](https://x.com/_munchables_)
 - **Discord:** https://discord.com/invite/munchables
