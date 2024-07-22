@@ -110,8 +110,9 @@ All Admin roles are trusted. Every role in ConfigStorage is trusted.
 
 | Role          | Description     |
 | ------------- | --------------- |
-| Owner         | Has superpowers |
-| Administrator | Can change fees |
+| Owner         | Can upgrade contract |
+| Landlord | Can change their own tax rate |
+| Rentor | Can stake Munchable on Landlord's land to toil |
 
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
 
