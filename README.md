@@ -119,8 +119,8 @@ cp .env.example .env
 
 nvm install && nvm use
 pnpm install
-pnpm build:solidity
-pnpm test:solidity
+pnpm build
+pnpm test
 ```
 
 To run code coverage
