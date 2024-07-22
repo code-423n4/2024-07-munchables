@@ -50,20 +50,29 @@ _See [scope.txt](https://github.com/code-423n4/2024-07-munchables/blob/main/scop
 
 Any file not listed in the 'in scope' section.
 
+Note that the following files are inherited by the file in scope, but they're NOT in scope:
+
+| Contract                                     |
+| -------------------------------------------- |
+| src/managers/BaseBlastManager.sol            |
+| src/config/BaseConfigStorage.sol             |
+| src/managers/BaseBlastManagerUpgradeable.sol |
+| src/config/BaseConfigStorageUpgradeable.sol  |
+
 _See [out_of_scope.txt](https://github.com/code-423n4/2024-07-munchables/blob/main/out_of_scope.txt)_
 
 ## Scoping Q &amp; A
 
 ### General questions
 
-| Question                                | Answer                                                                  |
-| --------------------------------------- | ----------------------------------------------------------------------- |
-| ERC20 used by the protocol              | NOne                                                                    |
-| Test coverage                           | ✅ SCOUTS: Please populate this after running the test coverage command |
-| ERC721 used by the protocol             | Munchable NFTs                                                          |
-| ERC777 used by the protocol             | None                                                                    |
-| ERC1155 used by the protocol            | None                                                                    |
-| Chains the protocol will be deployed on | Blast                                                                   |
+| Question                                | Answer         |
+| --------------------------------------- | -------------- |
+| ERC20 used by the protocol              | None           |
+| Test coverage                           | -              |
+| ERC721 used by the protocol             | Munchable NFTs |
+| ERC777 used by the protocol             | None           |
+| ERC1155 used by the protocol            | None           |
+| Chains the protocol will be deployed on | Blast          |
 
 ### External integrations (e.g., Uniswap) behavior in scope:
 
@@ -128,14 +137,6 @@ pnpm test:typescript
 # note that some tests might fail
 pnpm test:solidity
 ```
-
-To run code coverage
-
-```bash
-forge coverage --ir-minimum
-```
-
-✅ SCOUTS: Add a screenshot of your terminal showing the test coverage
 
 ## Miscellaneous
 
