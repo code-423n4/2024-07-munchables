@@ -1,0 +1,2009 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q3-2024 / munchables-jul23
+==============================================================
+
+[07/22/2024 14:24] itsmetechjay (pinned)
+👋 Hello and welcome to the audit channel for the $20,000 in USDC **Munchables** audit!
+
+📆 Audit opens Tuesday, 23 July 2024 20:00 (20:00 UTC) and runs through Monday, 29 July 2024 20:00 (20:00 UTC) (6 days).
+
+Please give a warm welcome to the Munchables team, particularly @0xinsanity, who will be available for questions either here in the channel or via a PRIVATE thread in the EST timezone. 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2024-07-munchables
+
+{Reactions}
+🔥 (4) 
+
+[07/22/2024 14:44] 0xinsanity
+👋
+
+{Reactions}
+👍 (8) 👋 (29) 
+
+[07/23/2024 10:45] kartoonjoy
+Pinned a message.
+
+
+[07/23/2024 20:26] sweetjimmy_
+just 277 nsloc?
+
+
+[07/23/2024 20:27] ihtishamsudo
+correct
+
+
+[07/23/2024 21:23] 0xinsanity
+yes, only LandManager
+
+
+[07/23/2024 23:00] modey__
+@0xinsanity 🫡 
+Please is 0 considered a valid plotId ?
+
+
+[07/23/2024 23:01] 0xinsanity
+dis is a good point, it should not be
+
+
+[07/23/2024 23:01] 0xinsanity
+cuz otherwise everybody would have at least 1 plot id, which is not desirable
+
+
+[07/23/2024 23:01] modey__
+Alright ser. Thank you
+
+
+[07/23/2024 23:05] .tedox
+Isnt it valid? If user has only 1 plot available and someone wants to stake on that plot the id they would use is 0. Otherwise this check would fail `if (plotId >= totalPlotsAvail) revert PlotTooHighError();`. Maybe I did not understand the code or question correctly though
+
+{Reactions}
+👍 (2) 
+
+[07/23/2024 23:06] 0xinsanity
+ah yea hes right @modey__
+
+{Reactions}
+❤️ 👍 
+
+[07/23/2024 23:06] 0xinsanity
+since its >= and not >
+
+
+[07/23/2024 23:54] 0xhelium
+How do you run a specific test ?
+
+
+[07/23/2024 23:55] 0xinsanity
+change the glob in tests/run.ts line 9
+
+
+[07/23/2024 23:57] 0xhelium
+Hmmmm
+
+
+[07/23/2024 23:58] 0xhelium
+Say I wrote my own it() block test inside stakeMunch.test.ts file
+
+
+[07/23/2024 23:58] 0xhelium
+I want to run this only one
+
+
+[07/23/2024 23:58] 0xhelium
+What should i put in run.ts ?
+
+
+[07/24/2024 00:11] 0xinsanity
+oh im not sure, i only know how to specify the file itself
+
+
+[07/24/2024 00:12] 0xinsanity
+if you want it to just be that file you can change it to: `"**/LandManager/stakeMunch.test.ts"`
+
+
+[07/24/2024 00:19] masol_66728
+can you help me understand this sentence from the audit docs:
+> The edge case occurs when a user hasn’t farmed in a while and the landlord updates the plots multiple times (ie unlocks/locks multiple times), causing the last updated time to reflect the latest lock update rather than the first.
+
+
+[07/24/2024 00:20] masol_66728
+what does it mean for the landlord to update the plots ?
+
+
+[07/24/2024 00:20] masol_66728
+when and how do the plots get updated ?
+
+
+[07/24/2024 01:37] 0xinsanity
+plots get updated if a player adds/removes more eth/usdb/blast token to their lock in the lockmanager
+
+
+[07/24/2024 01:58] preslavxyz
+do you have any problems with compiling?
+
+
+[07/24/2024 02:00] 0xinsanity
+what issue are you having
+
+
+[07/24/2024 02:01] preslavxyz
+```
+Error: 
+Compiler run failed:
+Error (6275): Source "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol" not found: File not found. Searched the following locations: "/home/preslavxyz/web3/audits/2024-07-munchables".
+ParserError: Source "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol" not found: File not found. Searched the following locations: "/home/preslavxyz/web3/audits/2024-07-munchables".
+ --> src/rng/RNGProxyAPI3.sol:4:1:
+  |
+4 | import "@api3/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol";
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+```
+
+
+[07/24/2024 02:01] 0xinsanity
+did you run:
+```git submodule update --init --recursive```
+
+
+[07/24/2024 02:01] 0xinsanity
+and ```
+nvm use
+pnpm install
+```
+
+
+[07/24/2024 02:22] preslavxyz
+10x bro
+
+{Reactions}
+🫡 (2) 
+
+[07/24/2024 04:31] bearonbike
+When running command: pnpm build:abi , i got this error:
+
+`munchables-common-core-latest@1.0.0 build:abi /mnt/d/Code4rena/2024-07-munchables
+pnpm wagmi generate
+
+✘ [ERROR] Cannot read directory "../..": input/output error
+
+panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x7a pc=0x7d5e82]`
+
+can someone help?
+
+
+[07/24/2024 04:51] stuart_the_minion
+i'm constantly failing in running tests with this logs. Can someone help me?
+```
+Details: The request timed out.
+  Version: viem@2.9.5
+    ... ...
+    details: 'The request timed out.',
+    docsPath: undefined,
+    metaMessages: [
+      'URL: http://127.0.0.1:8545',
+      'Request body: {"method":"eth_sendTransaction","params":[{"data":"0xe95b42e400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005","from":"0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266","to":"0x2a810409872afc346f9b5b26571fd6ec42ea4849"}]}'
+    ],
+    shortMessage: 'The request took too long to respond.',
+    version: 'viem@2.9.5'
+  }
+}
+```
+
+
+[07/24/2024 06:18] sancybars
+This will be fun.
+
+
+[07/24/2024 07:36] sharonphiliplima
+are all the tests for `LandManager` in HH only?
+
+
+[07/24/2024 08:13] mrosas
+What farmPlots does?
+
+
+[07/24/2024 08:18] mrosas
+What landlord does lol
+
+
+[07/24/2024 08:23] mrosas
+What's the general overview of this contract, there isn't any natspec
+
+
+[07/24/2024 08:33] mahi_vasisth
+what's the use of `dirty` variable .  I am not able to understand
+
+
+[07/24/2024 08:33] mahi_vasisth
+yes
+
+
+[07/24/2024 08:35] modey__
+@0xinsanity Please can you explain what the `dirty` variable signifies?
+
+
+[07/24/2024 08:46] kartoonjoy (pinned)
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try once the audit is live, by tagging `@Docs Wolf` in any __thread (private or public)__ and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.
+
+
+[07/24/2024 08:46] kartoonjoy
+Pinned a message.
+
+
+[07/24/2024 08:52] modey__
+@Docs Wolf explain `lastUpdated` and `dirty`
+
+
+[07/24/2024 08:56] mrmorningstar96
+@Docs Wolf can you explain `lastUpdated` and `dirty`?
+
+
+[07/24/2024 08:56] kartoonjoy
+In a thread, please..... can be public or private.
+
+{Reactions}
+🫡 (2) 
+
+[07/24/2024 09:25] granat__
+what’s the landlord?
+
+
+[07/24/2024 09:36] stuart_the_minion
+Landlord is a owner of plot and plot is like a piece of ground. So landlord lends his plots to toilors so that they can grow their Munchables.
+
+{Reactions}
+10_10 (2) 
+
+[07/24/2024 09:37] stuart_the_minion
+Does everybody has no problem with running tests? 😢
+
+
+[07/24/2024 09:38] sharonphiliplima
+https://2940425202-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FTntovqRqNnTMbN2jq0Oh%2Fuploads%2FaVhzla1IV0zr1Dpputcm%2FMunchables%20Smart%20Contract%20Audit%20Report.pdf?alt=media&token=e6ede26c-b649-45d7-835f-5f94d623fe94
+
+Password - ESMunc@24! 
+
+Their first audit
+
+
+[07/24/2024 09:39] sharonphiliplima
+my tests ran good. all HH
+
+
+[07/24/2024 09:40] stuart_the_minion
+@sharonphiliplima , did you do special operation on the repository? like creating `.env` file?
+
+
+[07/24/2024 09:42] sharonphiliplima
+nope just followed the C4 - 
+
+```
+
+git clone https://github.com/code-423n4/2024-07-munchables
+cd 2024-07-munchables
+
+
+nvm install && nvm use
+pnpm install
+pnpm build:abi
+
+# This currently runs only tests for LandManager
+# to run all tests modify the line here: https://github.com/code-423n4/2024-07-munchables/blob/main/tests/run.ts#L10
+pnpm test:typescript
+
+
+```
+
+
+[07/24/2024 09:43] stuart_the_minion
+it's driving me crazy... 😤
+
+
+[07/24/2024 09:44] stuart_the_minion
+What is your node version?
+
+
+[07/24/2024 09:44] sharonphiliplima
+whatever the devs intended it to be. that's the node version here
+
+
+[07/24/2024 09:45] sharonphiliplima
+`nvm install && nvm use`
+
+
+[07/24/2024 10:01] naties29
+Getting the same issue, but still not able to get past this with the provided fix
+
+
+[07/24/2024 10:03] naties29
+Nvm got it, pnpm global install was bugging for me
+
+
+[07/24/2024 10:03] preslavxyz
+1. `git clone https://github.com/code-423n4/2024-07-munchables`
+2. `cd 2024-07-munchables`
+3. `git submodule update --init --recursive` 
+4. `nvm install`
+5. `nvm use`
+6. `pnpm install`
+7. `pnpm build:abi`
+8. `pnpm test:typescript`
+
+{Reactions}
+🫡 
+
+[07/24/2024 10:03] naties29
+Thanks brother! appreciate you
+
+
+[07/24/2024 10:28] granat__
+why there is an “initialize” function if in the constructor the “_disableInitiators” does not allow any further initialization?
+
+
+[07/24/2024 10:28] gd.eth
+Started a thread.
+
+
+[07/24/2024 10:32] filmptz
+it is for the proxy to call to initialize their state,  the `_disableInitiators` prevents the impl contract to be initial and further reinitial.
+
+
+[07/24/2024 10:48] anonimoux2k
+Hi, does anyone explain about "deadlock"/"stuck" status within the context "deadlocks (ie. where an individual's Munchable is stuck)."?
+
+
+[07/24/2024 10:51] granat__
+so initialize how can be called?
+
+
+[07/24/2024 10:59] filmptz
+`delegatecall`
+
+
+[07/24/2024 11:01] granat__
+by the proxy? (so BaseConfigStorageUpgradable)
+
+
+[07/24/2024 11:54] filmptz
+yes, from my understanding is that the initialize processes during the constructor of the Proxy deployment 
+```
+
+contract ERC1967Proxy is Proxy, ERC1967Upgrade {
+  // snipped
+    constructor(address _logic, bytes memory _data) payable {
+        assert(_IMPLEMENTATION_SLOT == bytes32(uint256(keccak256("eip1967.proxy.implementation")) - 1));
+        _upgradeToAndCall(_logic, _data, false); // HERE
+    }
+
+```
+
+So the contract have no code size at this state construction. so they will pass check this 
+
+```
+modifier initializer() {
+// snipped
+
+bool initialSetup = initialized == 0 && isTopLevelCall;  //> TRUE for the first execution //> False for the parent init
+bool construction = initialized == 1 && address(this).code.length == 0; //> TRUE when parent init => BaseBlastManagerUpgradeable, BaseConfigStorageUpgradeable
+}
+```
+
+
+[07/24/2024 12:02] granat__
+👍
+
+
+[07/24/2024 12:03] granat__
+but i do not understand why there is “disableInitializers” in the constructor if the function initialize can be called
+
+
+[07/24/2024 12:06] filmptz
+to not disturb others, may I detail with u in private thread?
+
+{Reactions}
+👍 (2) 
+
+[07/24/2024 12:30] no.one7777
+which tokens will be use
+
+
+[07/24/2024 12:32] no.one7777
+`node_modules/@openzeppelin/contracts/utils/ReentrancyGuard.sol": No such file or directory (os error 2); check configured remappings 
+`
+
+
+[07/24/2024 13:00] granat__
+i find this codebase so difficult without natspac
+
+
+[07/24/2024 13:18] dimulski
+@0xinsanity can you give example values for the following variables
+    uint256 MIN_TAX_RATE;
+    uint256 MAX_TAX_RATE;
+    uint256 DEFAULT_TAX_RATE;
+    uint256 BASE_SCHNIBBLE_RATE;
+    uint256 PRICE_PER_PLOT;
+    int16[] REALM_BONUSES;
+    uint8[] RARITY_BONUSES;
+
+
+[07/24/2024 13:45] .tedox
+```
+  // Land Manager extras
+  [StorageKey.LockManager]: {
+    // MIN_TAX_RATE
+    value: BigInt(20e16),
+    func: CONFIG_FUNCTIONS.setUint,
+  },
+  [StorageKey.AccountManager]: {
+    // MAX_TAX_RATE
+    value: BigInt(75e16),
+    func: CONFIG_FUNCTIONS.setUint,
+  },
+  [StorageKey.ClaimManager]: {
+    // DEFAULT_TAX_RATE
+    value: BigInt(25e16),
+    func: CONFIG_FUNCTIONS.setUint,
+  },
+  [StorageKey.MigrationManager]: {
+    // BASE_SCHNIBBLE_RATE
+    value: BigInt(1e15),
+    func: CONFIG_FUNCTIONS.setUint,
+  },
+  [StorageKey.NFTOverlord]: {
+    // PRICE_PER_PLOT
+    value: BigInt(30e18),
+    func: CONFIG_FUNCTIONS.setUint,
+  },
+```
+found this in `config-consts.ts`. I assume that answers most of your question
+
+{Reactions}
+🙏 (2) 👍 
+
+[07/24/2024 13:48] 0xinsanity
+thank you @tedox ! yes those are the examples you should be able to use
+
+{Reactions}
+❤️ 
+
+[07/24/2024 13:49] .tedox
+```
+export const REALM_BONUSES = [
+  10, -10, -5, 0, 5, -10, 10, -5, 5, 0, -5, 0, 10, 5, -10, 0, -5, 10, 10, -10, 5, 10, 0, -10, 10,
+];
+
+export const RARITY_BONUSES = [0, 0, 10, 20, 30, 50];
+```
+here are the rest of the values
+
+
+[07/24/2024 13:52] oxelmiguel
+Please is PRICE_PER_PLOT or the value return by getLockedWeightedValue intended to remain fixed or can change over time ?
+
+
+[07/24/2024 14:22] stuart_the_minion
+@0xinsanity , i'm sorry but could you officially confirm if zero is valid value or not for `plotId`?
+
+{Reactions}
+🧐 (2) 
+
+[07/24/2024 14:27] 0xinsanity
+it is a valid value
+
+{Reactions}
+🫡 thankyou (2) 
+
+[07/24/2024 15:55] firatstory.eth
+what is the purpose of the LandManager.sol and user journeys of it? Nothing can be found in the docs
+
+
+[07/24/2024 17:42] dimulski
+when will the bot report be available
+
+
+[07/24/2024 17:46] itsmetechjay
+the automated findings report? It's [here](https://github.com/code-423n4/2024-07-munchables/blob/main/4naly3er-report.md).
+
+
+[07/24/2024 17:51] dimulski
+ah missed it, thanks
+
+{Reactions}
+hi5 
+
+[07/24/2024 18:59] dimulski
+@0xinsanity are the other manager contracts already deployed on chain
+
+
+[07/24/2024 19:07] waydoum
+did anyone understand the edge case? "then the last updated time will be the last time they updated their plot details
+           nstead of the first" why should it be the first ?
+
+
+[07/24/2024 19:37] 0xinsanity
+yes
+
+{Reactions}
+🙏 
+
+[07/24/2024 20:30] dimulski
+are the contract addresses available somewhere, and for munchNFT contract if also deployed
+
+
+[07/24/2024 20:44] 0xinsanity
+they are in the deployments cache
+
+{Reactions}
+🙏 
+
+[07/24/2024 20:44] 0xinsanity
+in a json file
+
+
+[07/25/2024 02:49] anonimoux2k
+Hi, I have a question. the id of a plot (plot id) is a state increasing from 0 or from 1?
+
+
+[07/25/2024 03:32] naties29
+Yeah next to no natspec lol
+
+
+[07/25/2024 07:29] 0xrochimaru
+`you can start playing with the game by entering it into your Snuggery. This Snuggery can be considered a little home for your Munchables and can be customized at the start of your game`
+ Does this mean staking your munchable?
+
+
+[07/25/2024 09:03] kartoonjoy
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try once the audit is live, by tagging `@Docs Wolf` in any __thread (private or public)__ and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.
+
+
+[07/25/2024 14:08] argilugio0
+hey @0xStuart where you able to solve the issue you had with the tests? I'm facing the same problem 😦  getting "The request took too long to respond"
+
+
+[07/25/2024 14:09] stuart_the_minion
+i was able to solve the problem by following the instruction under ubuntu and node 20.12.2.
+
+
+[07/25/2024 14:10] gd.eth
+Started a thread.
+
+
+[07/25/2024 14:10] argilugio0
+ok thank you!! I'll give it a try 🙂
+
+
+[07/25/2024 14:11] stuart_the_minion
+do not forget clearing pnpm caches.
+
+
+[07/25/2024 14:20] gd.eth
+Started a thread.
+
+
+[07/25/2024 15:06] 0xinsanity
+hey i think i got through all private threads this morning, if i missed anyone please create a new private thread again or message again
+
+{Reactions}
+👍 
+
+[07/25/2024 15:58] no.one7777
+why users will want to unstake Munchable
+
+
+[07/25/2024 16:09] .justuzair
+adding to this question, @0xinsanity when can the user unstake the nfts??
+
+
+[07/25/2024 16:10] .justuzair
+is there any particular case or does it depend solely on user
+
+{Reactions}
+✌️ 
+
+[07/25/2024 16:25] 0xinsanity
+they can unstake whenever they want
+
+
+[07/25/2024 16:27] .justuzair
+okay got it
+
+
+[07/25/2024 16:28] 0x46_dustin_22270
+not LockManger?
+
+
+[07/25/2024 16:29] 0xinsanity
+correct
+
+
+[07/25/2024 16:29] 0xinsanity
+LockManager is a lock of funds
+
+
+[07/25/2024 17:10] no.one7777
+ok but why they have to unstake
+
+
+[07/25/2024 17:10] 0xrochimaru
+@0xinsanity In what conditions does _getNumPlots() change?
+
+
+[07/25/2024 18:24] 0xinsanity
+when someone unlocks or locks more funds
+
+
+[07/25/2024 21:54] 0xhacksmithh
+@0xinsanity Hi ser, made a PT
+
+
+[07/26/2024 07:34] 0xjarix
+I did exactly that but I am still getting this error:
+Your project has missing dependencies that could not be installed.
+Error:
+error decoding response body
+
+Context:
+- Error #0: request or response body error
+- Error #1: operation timed out
+Missing dependencies found. Installing now...
+
+
+[07/26/2024 09:08] shaflow_
+When will updatePlotMetadata be called？ @0xinsanity
+
+
+[07/26/2024 12:46] 0x_6a70
+What tokens can be staked/locked as collateral to obtain a munchable ?
+
+
+[07/26/2024 13:08] prapandey031
+Usdb, Weth as Erc20s and native Blast Eth
+
+{Reactions}
+👍 
+
+[07/26/2024 14:08] 0xinsanity
+when a user locks or unlocks in LockManager
+
+
+[07/26/2024 14:11] no.one7777
+If there is a problem in `LandManager.sol` that is releated with another contract where OOS is that is valid issue @0xinsanity
+
+
+[07/26/2024 14:11] 0xinsanity
+can you give more context
+
+
+[07/26/2024 14:30] no.one7777
+if some function in LandManager.sol brakes another function in contract that is OOS is that is a valid issue
+
+
+[07/26/2024 14:31] 0xinsanity
+i would consider this a valid issue
+
+
+[07/26/2024 14:31] 0xinsanity
+depending on how much of a break it is
+
+
+[07/26/2024 14:31] no.one7777
+ok tnx
+
+
+[07/26/2024 14:32] no.one7777
+does it have some docs about LandManager @0xinsanity
+
+
+[07/26/2024 14:34] 0xinsanity
+no
+
+
+[07/26/2024 19:01] 0xrochimaru
+How to add a log in solidity contract that is visible in these test cases. Can someone suggest something @0xinsanity I don't wanna rewrite test cases in foundry
+
+
+[07/26/2024 19:17] 0xinsanity
+you can’t see logs unless you do a foundry test
+
+
+[07/26/2024 20:38] argilugio0
+maybe you can try emitting an event with the values that you are interested in, and then read the events in the test
+
+
+[07/26/2024 21:12] tylermorgan0618
+Could you tell me where struct ToilerState is used for?
+
+
+[07/26/2024 21:28] waydoum
+it's used in all the functions lol
+
+
+[07/26/2024 22:42] tylermorgan0618
+What I mean, what can we do with this struct?
+
+
+[07/27/2024 02:08] anonimoux2k
+Sorry but I have to say this, all projects should have documentation ready before going into the audit process. I really have a hard time reading a contract with almost no comments explaining the functions, and as you said, no docs at all.
+
+{Reactions}
+💯 (3) 
+
+[07/27/2024 02:10] 0xinsanity
+ok
+
+
+[07/27/2024 02:14] gd.eth
+Yeah, it's tough to understand the code base without doc specs etc. You have to spend more time reviewing every line of code, even the whole repo.
+
+
+[07/27/2024 02:17] gd.eth
+There is still some documentation though, and this has helped me a lot
+https://munchables.gitbook.io/munchables/explorers-guide
+
+{Embed}
+https://munchables.gitbook.io/munchables/explorers-guide
+Getting Started | Munchables
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/p4VwFM517cbxrBNPCV3y-7F3C9
+
+{Reactions}
+🙌 (3) 
+
+[07/27/2024 11:41] 1337web.eth
+Tbh I think for this contest it is not entirely true because @0xinsanity is extremely responsive and helpful so it's not that hard to understand what is going on in the codebase
+
+{Reactions}
+🙏 (4) 
+
+[07/27/2024 11:54] anonimoux2k
+Yeah, I appreciate and thank @0xinsanity for his enthusiastic support, but the lack of docs and comments still makes it a bit difficult for auditors to access.
+
+
+[07/27/2024 12:02] 0xinsanity
+just ask any questions you have over private thread and i’ll answer
+
+{Reactions}
+🔥 (2) 
+
+[07/27/2024 16:01] santipu_
+Started a thread.
+
+
+[07/27/2024 16:14] waydoum
+I have opened a private thread, thank you for your time
+
+{Reactions}
+👍 
+
+[07/27/2024 16:48] joshuajee
+i get this error
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/image-6A730.png
+
+
+[07/27/2024 17:07] 0xinsanity
+1. `git clone https://github.com/code-423n4/2024-07-munchables`
+2. `cd 2024-07-munchables`
+3. `git submodule update --init --recursive` 
+4. `nvm install`
+5. `nvm use`
+6. `pnpm install`
+7. `pnpm build:abi`
+8. `pnpm test:typescript`
+
+
+[07/27/2024 17:07] 0xinsanity
+please follow these instructions
+
+
+[07/27/2024 17:10] 0xmsf14
+https://github.com/code-423n4/2024-05-munchables/blob/main/guides/ARCHITECTURE.md this helped for some defintions
+
+{Embed}
+https://github.com/code-423n4/2024-05-munchables/blob/main/guides/ARCHITECTURE.md
+2024-05-munchables/guides/ARCHITECTURE.md at main · code-423n4/2024...
+Contribute to code-423n4/2024-05-munchables development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/021ae13a-1040-4787-8ea1-b753980a4a28-8E9CB
+
+{Reactions}
+🙏 
+
+[07/27/2024 17:48] joshuajee
+still doesn't work, what version of nodejs are you using
+
+
+[07/27/2024 17:50] 0xinsanity
+did you run nvm use?
+
+
+[07/27/2024 18:05] joshuajee
+Yes, I already had nvm installed though
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/image-973F6.png
+
+
+[07/27/2024 18:06] 0xinsanity
+message me on private thread and we can troubleshoot, no need to bog down the main public thread
+
+
+[07/27/2024 18:16] joshuajee
+Started a thread.
+
+
+[07/27/2024 18:58] 0xhelium
+For people’s not understanding the codebase in scope use the @Docs Wolf  and ask him what each function does . The Bot is a 10/10 .  You can even try to play with him if you have some exploit ideas .
+
+{Reactions}
+nice (2) thankyou 
+
+[07/27/2024 19:08] tylermorgan0618
+how can I use it?
+
+
+[07/27/2024 19:10] argilugio0
+start a private thread with the bot. Mention it with @ in the question
+
+{Reactions}
+🔥 
+
+[07/27/2024 19:12] tylermorgan0618
+@how can i use it
+
+
+[07/27/2024 19:14] gr34t.l4k3
+mention docs wolf and write your question
+
+
+[07/27/2024 19:14] tylermorgan0618
+@Docs Wolf can you tell me anything?
+
+
+[07/27/2024 19:55] ui.ui.ui
+You have to use it on thread public or private
+
+{Reactions}
+thankyou 
+
+[07/28/2024 07:56] kartoonjoy
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try, by tagging `@Docs Wolf` in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.
+
+
+[07/28/2024 11:03] swag6843
+Xd
+
+
+[07/28/2024 11:32] swag6843
+https://tenor.com/view/mission-critical-minions-despicable-me-gif-10440611
+
+{Embed}
+https://tenor.com/view/mission-critical-minions-despicable-me-gif-10440611
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/mission-critical-minions-5EB64.png
+
+
+[07/28/2024 14:05] hex_panda
+@0xinsanity please check the PT when you're available 🙏
+
+
+[07/28/2024 14:10] ui.ui.ui
+Mine too, please!
+
+
+[07/28/2024 16:33] roc0837
+I get this error when I try running pnpm build:abi 
+@0xinsanity
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/20240728_173131-A232F.jpg
+
+
+[07/28/2024 17:03] enckrish
+@0xinsanity what will be the value of PRICE_PER_PLOT?
+
+
+[07/28/2024 17:06] 0xinsanity
+30e18
+
+{Reactions}
+🫡 (3) thankyou 
+
+[07/28/2024 17:06] ribarcheto
+https://discord.com/channels/810916927919620096/1264356051415732224/1265666092240470017
+
+{Reactions}
+thankyou 
+
+[07/28/2024 17:35] tylermorgan0618
+Could you tell me the purpose of function _farmPlots()?
+
+
+[07/28/2024 17:38] 0xinsanity
+it’s to claim your farming rewards
+
+
+[07/28/2024 19:06] ihtishamsudo
+pls check sudoQueries PT
+
+
+[07/28/2024 19:37] ivanfitro
+anyone can explain to me the logic of dirty?
+
+
+[07/28/2024 19:39] 0xflare2684
+if a landlord withdraws funds so the plot id that used to be valid is no longer valid but you still have a munchable on it
+
+
+[07/28/2024 19:40] ivanfitro
+ok and the solution is unstake and stake another time?
+
+
+[07/28/2024 19:42] 0xflare2684
+yes
+
+{Reactions}
+👍 
+
+[07/28/2024 20:05] ivanfitro
+`landlordMetadata.lastPetMunchable` is used to save the last update timestamp for a specific landlord?
+
+
+[07/28/2024 21:26] 0xmsf14
+it is the last timestamp a landlord pet his Munchable
+
+{Reactions}
+👍 
+
+[07/29/2024 05:06] pickpeak1024
+I get this error when I try running pnpm test:typescript
+
+
+[07/29/2024 05:11] pickpeak1024
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/image-7C186.png
+
+
+[07/29/2024 07:36] jejebl
+What is toiler state ?
+
+
+[07/29/2024 12:44] exolorkistis
+hi all i am trying to test using foudry but i get error about not finding RrpRequesterV0.sol. freom where can i install it?
+
+
+[07/29/2024 12:47] exolorkistis
+@Docs Wolf  how do i find the @api3/airnode-protocol/contracts/rrp/requesters/RrpRequesterV0.sol
+
+
+[07/29/2024 12:48] itsmetechjay
+You can only use Docs Wolf in a public or private thread.
+
+
+[07/29/2024 14:32] ivanfitro
+@0xinsanity can you explain the logic to obtain the REALM_BONUSES? I dont understand how is obtained the index to access the array.
+`REALM_BONUSES[
+  (uint256(immutableAttributes.realm) * 5) +
+   uint256(landlordMetadata.snuggeryRealm)
+ ]`
+
+
+[07/29/2024 16:40] 0xinsanity
+it should be documented in BonusManager, its the same logic
+
+{Reactions}
+👍 
+
+[07/29/2024 19:07] 0xjarix
+`Context` means bad logic implementation right?
+
+
+[07/29/2024 20:01] ililhunterlili
+thx @0xinsanity for being always available and kind
+
+{Reactions}
+🙌 (8) 
+
+[07/29/2024 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens  The **Munchables** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Feel free to ping a Civics-Admin if you have questions along the way!
+
+
+[07/29/2024 20:04] joshuajee
+How many issues?
+
+
+[07/29/2024 20:18] brivan
+383
+
+
+[07/29/2024 20:41] 0x04bytes
+From validation, finding or both repo?
+
+
+[07/29/2024 20:49] joshuajee
+More issues than I expected from a small codebase
+
+
+[07/29/2024 20:55] 0xinsanity
+thank you everybody!
+
+{Reactions}
+❤️ (8) 
+
+[07/29/2024 20:57] uvicorn
+when will you publish issues ?
+
+
+[07/29/2024 20:57] uvicorn
+(im newbie, idk contests rules)
+
+
+[07/29/2024 21:00] gulshn321
+🥺 pls this is a small auction take less time unlike vultisig
+
+
+[07/29/2024 21:02] iwildsniperi
+Ye you haven't seen DYAD tho
+
+
+[07/29/2024 21:02] waydoum
+yeah I didn't expect this much issues
+
+
+[07/29/2024 21:02] francise._
+Where are you guys viewing the issues?
+
+
+[07/29/2024 21:03] waydoum
+I don't know tbh I just saw @Abdessamed message saying 383
+
+
+[07/29/2024 21:04] francise._
+Ohhhh
+
+
+[07/29/2024 21:07] forgebyola
+455 including findings
+
+
+[07/29/2024 21:09] francise._
+Where are you seeing this?
+
+
+[07/29/2024 21:09] francise._
+Can you share
+
+
+[07/29/2024 21:10] ui.ui.ui
+You need to have SR role to see
+
+
+[07/29/2024 21:14] francise._
+Ohh thanks
+
+
+[07/29/2024 21:19] joshuajee
+I didn't participate in DYAD, but this is like 300 lines of code.
+
+
+[07/29/2024 21:20] brivan
+You guys seem didn't participate in a contest that had +2.1k submissions. Chill, the results of this one should be next week.
+
+{Reactions}
+🫡 (2) 🎉 (2) 
+
+[07/29/2024 21:22] joshuajee
+This would be a nightmare for the judges 😂
+
+
+[07/29/2024 21:22] iwildsniperi
+Literally was waiting you😂
+Tell them G
+
+{Reactions}
+😅 
+
+[07/29/2024 22:17] demorextess
+I would like to thank @0xinsanity , he helped me a lot while the contest
+
+{Reactions}
+🙏 
+
+[07/30/2024 07:45] ihtishamsudo
+388 + 72
+
+{Reactions}
+👍 
+
+[07/30/2024 20:21] pinchaschaim
+I included my findings within the deadline but I didn't see my name on the list
+
+
+[07/30/2024 20:23] ihtishamsudo
+findings are private yet. You need to have SR role to check that out. Further, you might have received mails for submitting issues.
+
+
+[07/30/2024 20:28] pinchaschaim
+yes, when I submitted I received emails. Great thanks
+
+{Reactions}
+c4services (2) 
+
+[07/31/2024 21:30] ililhunterlili
+hello sir, i have shooted you a DM💙
+
+{Reactions}
+👍 
+
+[08/03/2024 22:03] demorextess
+any news ?
+
+
+[08/04/2024 17:56] ililhunterlili
+👀
+
+
+[08/05/2024 19:49] brivan
+Sponsor reviewed primary issues. Judge is going over issues.
+PJQA should be close
+
+Edit: PJQA started
+
+{Reactions}
+👆 (5) 
+
+[08/05/2024 22:41] dontonka
+Started a thread.
+
+
+[08/06/2024 08:19] rudhra_52418
+PJQA means
+
+
+[08/06/2024 08:26] brivan
+Post-judging QA.
+It lasts 48 hours after the judge finishes judging, wardens with SR role can leave comments on the issues they don't agree with judge decision.
+
+
+[08/06/2024 08:35] rudhra_52418
+ohh what happens after 48 hrs
+
+
+[08/06/2024 08:49] brivan
+Judge resolve comments, and results are announced
+
+
+[08/06/2024 08:50] rudhra_52418
+ohh thank you
+
+
+[08/06/2024 09:02] rudhra_52418
+can u check my dm please
+
+
+[08/06/2024 09:47] phoenixv110
+Can anyone participate in PJQA. How to check if my submissions are accepted or marked as invalid?
+
+
+[08/06/2024 10:01] welith
+become a SR 😄 Or ask a friend SR to check for you
+
+
+[08/06/2024 10:28] phoenixv110
+Steps to be SR ser 😅
+
+
+[08/06/2024 10:30] welith
+Get validated issues 😄 https://docs.code4rena.com/roles/certified-contributors/sr-backstage-wardens
+
+{Embed}
+https://docs.code4rena.com/roles/certified-contributors/sr-backstage-wardens
+Security Researcher role (formerly +backstage wardens) | Code4rena
+
+{Reactions}
+✅ 
+
+[08/06/2024 12:43] joshuajee
+Are we expecting a lot of H/M?
+
+
+[08/06/2024 12:44] brivan
+Can't disclose now. You will know the number when announcing rewards anyways
+
+
+[08/06/2024 12:52] joshuajee
+Alright
+
+
+[08/06/2024 15:46] 0x04bytes
+Will the result be announced within this week?
+
+
+[08/08/2024 13:00] ililhunterlili
+👀
+
+{Reactions}
+👀 (20) 
+
+[08/09/2024 12:49] irondevx
+Hey mate, can you clue us in on the progress?
+
+
+[08/09/2024 12:50] irondevx
+sorry for pinging you out of the blue, I was just wondering.
+
+
+[08/09/2024 12:50] brivan
+PJQA ended 2 days ago. Not much comments (escalations), but the judge did not start resolving comments yet.
+Probably Beginning of next week (Monday/Tuesday)
+
+{Reactions}
+👍 (4) 
+
+[08/09/2024 12:51] irondevx
+That's what I figured, thanks!
+
+{Reactions}
+hi5 (5) 
+
+[08/10/2024 17:50] ililhunterlili
+👀
+
+{Reactions}
+👀 (12) 
+
+[08/12/2024 09:50] ivanchoveka
+https://tenor.com/view/waiting-waiting-patiently-waiting-for-you-waiting-on-you-gif-15489516379864441176
+
+{Embed}
+https://tenor.com/view/waiting-waiting-patiently-waiting-for-you-waiting-on-you-gif-15489516379864441176
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/waiting-waiting-patiently-C8F8A.png
+
+{Reactions}
+🤣 (13) 
+
+[08/12/2024 14:25] brivan
+Today or Tomorrow
+
+{Reactions}
+🙌 (13) 
+
+[08/13/2024 04:21] ililhunterlili
+https://tenor.com/view/today-yay-gif-25615367
+
+{Embed}
+https://tenor.com/view/today-yay-gif-25615367
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/today-yay-B5CD4.png
+
+{Reactions}
+👀 (12) 
+
+[08/13/2024 14:29] joshuajee
+https://tenor.com/view/tom-tom-and-jerry-waiting-tom-waiting-gif-17813304
+
+{Embed}
+https://tenor.com/view/tom-tom-and-jerry-waiting-tom-waiting-gif-17813304
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/tom-tom-and-jerry-67339.png
+
+{Reactions}
+❤️ (3) 
+
+[08/13/2024 14:31] ivanchoveka
+every time a message comes up here my heart skips a beat
+
+{Reactions}
+😂 (6) 🎉 
+
+[08/13/2024 14:37] modey__
+Lol and yours just did the same
+
+{Reactions}
+🫣 
+
+[08/13/2024 15:08] ililhunterlili
+https://tenor.com/view/angry-cat-gif-25783770
+
+{Embed}
+https://tenor.com/view/angry-cat-gif-25783770
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/angry-cat-E3BCE.png
+
+{Reactions}
+😂 (6) 
+
+[08/13/2024 15:10] brivan
+Try to stay alive for just couple of minutes
+
+{Reactions}
+😮 (10) 
+
+[08/13/2024 16:29] 0xrochimaru
+https://tenor.com/view/lazy-cat-waiting-bored-kitten-gif-18187747
+
+{Embed}
+https://tenor.com/view/lazy-cat-waiting-bored-kitten-gif-18187747
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/lazy-cat-FDA36.png
+
+
+[08/13/2024 18:03] ililhunterlili
+What is your definition of minutes😢
+
+
+[08/13/2024 18:04] ililhunterlili
+https://tenor.com/view/cat-stare-angry-cat-funny-cat-memes-gif-14595486679217135725
+
+{Embed}
+https://tenor.com/view/cat-stare-angry-cat-funny-cat-memes-gif-14595486679217135725
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/cat-stare-angry-cat-27C35.png
+
+{Reactions}
+😂 (2) 
+
+[08/13/2024 18:22] joshuajee
+Maybe a day or two 😂
+
+
+[08/13/2024 19:19] shubh0412
+Logo has appeared on C4 profile
+
+
+[08/13/2024 19:20] shubh0412
+https://tenor.com/view/metis-metis-crypto-metisdao-metis-crypto-token-metis-l2-gif-26894854
+
+{Embed}
+https://tenor.com/view/metis-metis-crypto-metisdao-metis-crypto-token-metis-l2-gif-26894854
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/metis-metis-crypto-D3E48.png
+
+
+[08/13/2024 20:47] francise._
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/copium-meaning-e1662494143102-00FF2.jpg
+
+{Reactions}
+4739_Skeletor (2) 
+
+[08/14/2024 05:28] ililhunterlili
+https://tenor.com/view/today-yay-gif-25615367
+
+{Embed}
+https://tenor.com/view/today-yay-gif-25615367
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/today-yay-B5CD4.png
+
+{Reactions}
+😂 (4) 
+
+[08/14/2024 05:45] welith
+It's gonna be like "Today or tomorrow" and bam it's Christmas 😄
+
+{Reactions}
+😢 😲 👀 😂 (4) 4739_Skeletor (2) 10_10 legalchicken (2) 
+
+[08/14/2024 08:13] preslavxyz
+soon?
+
+
+[08/14/2024 09:07] ililhunterlili
+In 4 hours max
+
+{Reactions}
+👀 (2) 😮 (3) 😂 (2) 
+
+[08/14/2024 09:50] irondevx
+source: trust me bro
+
+{Reactions}
+😂 (3) 
+
+[08/14/2024 09:52] ililhunterlili
+Knowing that you: 
+- are not in the top 10 may hurt
+- but knowing that your payout doesn't exceed 10$ hurts more
+- - the above statements hurts the double if you are duo
+- don't have a valid finding hurts the most
+
+{Reactions}
+😂 (3) 
+
+[08/14/2024 09:53] ililhunterlili
+Leave this as a reference here for us all till the results😂
+
+
+[08/14/2024 10:04] preslavxyz
+you sure?
+
+
+[08/14/2024 10:04] demorextess
+Auditing psychology 😄 ,  if you remember this while checking the codebase, you will have more chance to find good bugs
+
+{Reactions}
+🔥 (2) 
+
+[08/14/2024 11:03] ililhunterlili
+No🥲
+
+{Reactions}
+thisisfine 
+
+[08/14/2024 12:33] joshuajee
+I guess 0.01 cents hurt the most
+
+{Reactions}
+😂 
+
+[08/14/2024 12:59] welith
+@Abdessamed why did you give us so much false hope on Monday? Did you have facts or were you just speculating? 😄
+
+{Reactions}
+same 
+
+[08/14/2024 13:14] ui.ui.ui
+he doesn't work with c4, he just tries to help us with updates because he has the backstage role and assumes the result is close according to previous contests
+
+{Reactions}
+👍 (4) 
+
+[08/14/2024 13:21] brivan
+It was my expectation. Contest results are already ready in the github repo + protocol's logo is already appearing on the certified warden profiles.
+The reason of announcement delays is unkown to me too.
+
+
+[08/14/2024 13:28] ivanfitro
+where you can see this? `appearing on the certified warden profiles`
+
+
+[08/14/2024 13:29] brivan
+Go to your profile, you will see the logo if you have rewards (*if you can't see it on your profile, go to profile settings and toggle `Audits you've participated in`*)
+
+
+[08/14/2024 13:31] ivanfitro
+mmm...i have activated and confirmed bug but i cant see it🤔
+
+
+[08/14/2024 13:33] welith
+You need to have Activity graph enabled, and it will show that you've heloed secure the protocol
+
+{Reactions}
+👆 
+
+[08/14/2024 13:34] ivanfitro
+yes i have it but doesnt appears
+
+
+[08/14/2024 13:34] welith
+But you won't see how many issues you have confirmed or other info
+
+
+[08/14/2024 13:34] welith
+this is how I have it and I can see it
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/Screenshot_2024-08-14_at_16.34.22-E14C6.png
+
+
+[08/14/2024 13:35] ivanfitro
+aah yes i can see it
+
+
+[08/14/2024 13:35] ivanfitro
+helped secure
+
+
+[08/14/2024 13:35] ivanfitro
+thank you!!
+
+{Reactions}
+🍻 
+
+[08/14/2024 13:56] thebrittfactor
+We're working through getting these awards calculated. We appreciate y'alls patience :hi5: ☺️
+
+{Reactions}
+🔥 (9) 🚀 (5) 
+
+[08/14/2024 14:07] dimulski
+are you doing it with a pen and papper 😄
+
+
+[08/14/2024 14:08] preslavxyz
+Bulgarian judge system is even faster
+
+{Reactions}
+💀 (4) ❌ 
+
+[08/14/2024 14:31] dontonka
+Is not that just running a script 😅?
+
+
+[08/14/2024 14:33] welith
+https://tenor.com/view/monkey-calculate-silly-count-gif-7714714
+
+{Embed}
+https://tenor.com/view/monkey-calculate-silly-count-gif-7714714
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/monkey-calculate-DDD80.png
+
+
+[08/14/2024 14:41] demorextess
+Okay guys, let's create an automation script for this. C4 gaves us a lot and, it's time for us. But do not think simple, it won't just calculate the rewards of the winners. It will also create top 10 reward cards and it will generate the discord message. Then biggest part is coming, we will open a new audit contest for this code in order to be sure it's correctly implemented. Who wants to be in this project ? 👀
+
+{Reactions}
+😂 🙏🏻 
+
+[08/14/2024 15:14] dimulski
+I am gonna let you on a secret, an open source calculation script already exists
+
+{Reactions}
+😂 
+
+[08/14/2024 15:17] _karanel
+man, did you have to reveal that? i wanted to see who else was gonna join in xD
+
+
+[08/14/2024 15:21] brivan
+Just wondering, are you referring to 3DOC tool?
+
+{Reactions}
+👆 
+
+[08/14/2024 15:25] dimulski
+you can work on the card thing, don't worry 😄
+
+
+[08/14/2024 15:28] _karanel
+I just wanna see who thinks that they don't already have those scripts 😆
+
+
+[08/14/2024 15:29] dimulski
+ahh, I mean there is a tool that is open source, you can calculate some range of what you can expect, but you need sr role, it is a bit different than the one that c4 staff uses
+
+
+[08/14/2024 15:31] _karanel
+ah, alright!
+
+
+[08/14/2024 15:48] joshuajee
+I can see it
+
+
+[08/14/2024 15:48] joshuajee
+SR rôle comming 😁
+
+
+[08/14/2024 16:15] 0x_6a70
+I don't really wanna spoil my suprise of winning $3 on this one.
+
+{Reactions}
+😂 
+
+[08/14/2024 16:17] brivan
+I did, getting the first shock with yourself is easier than in public.
+
+
+[08/14/2024 16:17] 0x_6a70
+naaah gonna skip 😄
+
+
+[08/14/2024 16:17] francise._
+Lots of duplicates?
+
+{Reactions}
+💯 
+
+[08/14/2024 16:35] dimulski
+he probably won it 😄
+
+
+[08/14/2024 16:38] francise._
+You sure?
+He doesn't sound like it. I can sense the disappointment a bit
+
+We'll find out soon enough😄
+
+
+[08/14/2024 16:40] dimulski
+nah he is too excited, probably expecting something good
+
+{Reactions}
+🔥 😂 
+
+[08/14/2024 18:25] brivan
+I liked my character analytics.
+
+{Reactions}
+😂 (4) 
+
+[08/14/2024 18:27] dimulski
+I should also mention that I cheated a little bit 😄
+
+
+[08/14/2024 19:12] francise._
+That explains your confidence 😂
+
+
+[08/14/2024 20:18] preslavxyz
+What's happening?
+
+
+[08/14/2024 22:02] thebrittfactor
+🤑 🎉  Awards for **Munchables**:
+
+$1703.61 USDC » @merlinboii 
+$1632.8 USDC » @0xCiphky 
+$706.16 USDC » @MrPotatoMagic 
+$627.87 USDC » @dimulski 
+$536.03 USDC » BugPull (@Hunter and @Mostafa)
+$515.22 USDC » @shaflow2 
+$457.5 USDC » @bozho 
+$447.05 USDC » @typicalHuman 
+$433.29 USDC » @dhank 
+$432.91 USDC » @Abdessamed 
+$404.25 USDC » @dontonka 
+$404.17 USDC » @santipu_ 
+$404.17 USDC » @0xrex 
+$389.07 USDC » @artilugio0 
+$375 USDC » @ke1caM 
+$361.13 USDC » @Rhaydden 
+$360.28 USDC » @vinica_boy 
+$359.9 USDC » @turvy_fuzz 
+$359.9 USDC » @matejdb 
+$357.08 USDC » @gajiknownnothing 
+$357.08 USDC » @forgebyola 
+$346.26 USDC » @prapandey031 
+$317.09 USDC » @araj 
+$316.81 USDC » @Utsav 
+$316.71 USDC » @DemoreX 
+$299.48 USDC » @franfran20 
+$299.48 USDC » @0x3b 
+$299.17 USDC » @0rpse 
+$269.92 USDC » @DPS
+$269.92 USDC » @0x_6a70 
+$147.75 USDC » @peanuts 
+$126.53 USDC » @tedox 
+$126.53 USDC » @stanchev 
+$126.15 USDC » @joaovwfreire 
+$116.79 USDC » @Zeta 
+$116.71 USDC » @irondevx 
+$116.33 USDC » @rudhra 
+$89.98 USDC » @Phoenix_x
+$87.54 USDC » @Tomas0707
+$87.54 USDC » @Heaven
+$87.45 USDC » @Drynooo 
+$87.15 USDC » @nnez 
+$87.15 USDC » @McToady 
+$80.25 USDC » @gd
+$58.8 USDC » @0xStuart 
+$39.38 USDC » @iam_emptyset 
+$39.38 USDC » @enckrish 
+$38.99 USDC » @slvDev 
+$37.92 USDC » KaligoAudits (@0xShiki, @Owliie and @Weedeus)
+$29.63 USDC » @Chad0 
+$29.55 USDC » @Waydou
+
+
+[08/14/2024 22:05] thebrittfactor
+$29.25 USDC » @synackrst
+$29.25 USDC » @PENGUN 
+$29.25 USDC » @LeFy 
+$29.25 USDC » @jesjupyter 
+$29.25 USDC » @JanuaryPersimmon2024 
+$29.17 USDC » @Yaioxy 
+$29.17 USDC » @Trooper 
+$29.17 USDC » TPSec (@PTolev and @Pataroff)
+$29.17 USDC » @Topmark 
+$29.17 USDC » @robertodf99 
+$29.17 USDC » @Nexarion 
+$29.17 USDC » @Maroutis 
+$29.17 USDC » @King_ 
+$29.17 USDC » @K42 Ψ 
+$29.17 USDC » @cheatc0d3 
+$14.97 USDC » @Flare 
+$14.59 USDC » @0xb0k0 
+$7.29 USDC » @Tamer 
+$0.38 USDC » @TECHFUND-inc
+$0.38 USDC » @Shubham 
+$0.38 USDC » @sandy 
+$0.38 USDC » @radev_sw 
+$0.38 USDC » @pipidu83 
+$0.38 USDC » @mojito_auditor 
+$0.38 USDC » @m4ttm 
+$0.38 USDC » @joshuajee 
+$0.38 USDC » @ihtishamsudo 
+$0.38 USDC » @Gosho 
+$0.38 USDC » @gkrastenov 
+$0.38 USDC » @Fon 
+$0.38 USDC » @Fitro 
+$0.38 USDC » @eta 
+$0.38 USDC » EPSec (@0x539.eth and @petarP1998)
+$0.38 USDC » @corporalking
+$0.38 USDC » @beaker
+$0.38 USDC » @bearonbike 
+$0.38 USDC » @AvantGard 
+$0.38 USDC » @0xjarix 
+$0.38 USDC » @0x04bytes 
+$0.10 USDC » @d4r3d3v1l 
+
+🏁 Findings summary
+--------------------------------------
+5 High risk findings
+1 Med risk findings
+147 wardens contributed
+
+Top Gatherer: merlinboii and 0xCiphky
+Top QA report: Rhaydden
+
+Awards will be distributed on Polygon. Congratulations all!  💸 💸 💸
+
+{Reactions}
+🎉 (5) ✅ (2) 🚀 🫡 
+
+[08/14/2024 22:06] thebrittfactor
+⚠️ Awardees, be sure to review [this announcement](https://discord.com/channels/810916927919620096/810929015509483554/1272625452909072415) and fill in your tax info if you haven't already. This must be completed within 30 days (i.e. before Friday, 13 September 2024) to receive your award distribution for this audit.
+
+*The leaderboard will be updated soon. Thanks for your patience!*
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+
+[08/14/2024 22:11] brivan
+Gg @merlinboii
+
+{Reactions}
+🙇‍♂️ 
+
+[08/14/2024 22:13] 18a6
+gg to u ser
+
+{Reactions}
+thankyou 
+
+[08/14/2024 23:05] masol_66728
+congrats everyone
+
+
+[08/14/2024 23:08] iwildsniperi
+Gg to my homies @Hunter and @Mostafa, betters should be next
+
+{Reactions}
+💙 (2) 
+
+[08/14/2024 23:18] demorextess
+Nice job @merlinboii
+
+{Reactions}
+🙇‍♂️ 
+
+[08/14/2024 23:58] filmptz
+Big thanks! appreciate all of you.
+Congratulations everyone! :code4rena: 🚀
+
+
+[08/15/2024 05:15] gd.eth
+I'm curious how many of my submissions were accepted 👀
+
+
+[08/15/2024 05:16] gd.eth
+I don't have access to PJQA, but I think at least 4 high (with poc) and 1 medium should be confirmed!
+Either that or I didn't write my report well enough 🤣 , I'll learn from this one!
+
+
+[08/15/2024 05:16] gd.eth
+Anyway, congratulations to all! 🚀
+
+
+[08/15/2024 05:23] francise._
+Congratulations everyone!
+
+{Reactions}
+❤️ 
+
+[08/15/2024 05:43] oxtenma
+Congrats @0xrex 🎉
+
+{Reactions}
+🫡 (3) 
+
+[08/15/2024 05:50] web3tycoon
+How will it take till it reflects on someone's account
+
+
+[08/15/2024 05:59] joshuajee
+Congrats @Hunter and @DemoreX 🚀
+
+{Reactions}
+❤️ (2) 
+
+[08/15/2024 06:59] waydoum
+Congratulation everyone, how long does the report takes to get published, I really wanna see what I have missed, thanks a lot
+
+{Reactions}
+👀 🚀 
+
+[08/15/2024 08:01] kombainera
+Hi guys, we submitted 1 issue that is correct ( I have backstage and I can see it ) and it is accepted and everything but we are not on the leaderboard, what could have caused this? It is a high, duplicate-76
+
+
+[08/15/2024 08:05] ililhunterlili
+Is it sufficient?
+
+
+[08/15/2024 08:22] ivanchoveka
+When are we going to see the results? How many valid findings one have?
+
+{Reactions}
+👍 
+
+[08/15/2024 08:39] kombainera
+Yes
+
+{Reactions}
+👍 
+
+[08/15/2024 08:48] filmptz
+It seems some teams were wrongly tagged on the leaderboard above (assigned as regular users on Discord). may need to be rechecked.
+
+
+[08/15/2024 09:17] samuraii77
+$269.92 USDC » @DPS
+
+{Reactions}
+👍 
+
+[08/15/2024 10:02] brivan
+Open a help desk
+
+
+[08/15/2024 10:02] preslavxyz
+When will be the report published?
+
+
+[08/15/2024 10:03] brivan
+Usually it takes around 1 month.
+
+
+[08/15/2024 10:03] preslavxyz
+I hope you are joking
+
+{Reactions}
+❌ 
+
+[08/15/2024 10:29] kombainera
+@samuraii77 I found our team, we were just not tagged
+
+{Reactions}
+hi5 
+
+[08/15/2024 13:09] devpelz
+@King_ congrats 😂
+
+
+[08/15/2024 13:34] 0x_6a70
+I got the same result.
+
+{Reactions}
+🔥 (2) 
+
+[08/15/2024 13:51] _killua69_
+Thanks 😂💀
+
+{Reactions}
+😂 
+
+[08/16/2024 10:29] 0xrochimaru
+Where can I see the issues. Will I have to wait for final report?
+
+
+[08/16/2024 10:54] ililhunterlili
+yep
+
+{Reactions}
+✅ 
+
+[08/16/2024 13:55] waydoum
+Still don’t understand why does it take so much time to publish it
+
+
+[08/16/2024 15:49] ihtishamsudo
+sponsors fix all the issues found during the audit, and it takes time.
+
+{Reactions}
+💯 
+
+[08/17/2024 02:27] gd.eth
+@0xinsanity  @thebrittfactor | C4  Hi, is it still possible to review issue 215? https://github.com/code-423n4/2024-07-munchables-findings/issues/215
+I believe it was incorrectly marked as a duplicate of issue 92.
+I'm sorry that I can only raise this issue after the report is public, but I think this could affect the protocol and users. 🙏
+
+{Embed}
+https://github.com/code-423n4/2024-07-munchables-findings/issues/215
+The more critical attack vector triggered by the `setLockDuration` ...
+Lines of code https://github.com/code-423n4/2024-07-munchables/blob/main/README.md?plain=1#L19-L20 https://github.com/code-423n4/2024-07-munchables/blob/main/src/managers/LandManager.sol#L251-L261 ...
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/215-D2C25
+
+
+[08/17/2024 12:37] pickpeak1024
+Please send me the transaction hash
+
+
+[08/20/2024 07:31] gd.eth
+Hi guys, has anyone read the report? just finished it, so amazing contest! 🎉
+
+
+[08/20/2024 07:31] gd.eth
+🤓
+
+
+[08/20/2024 07:36] gd.eth
+You guys are really smart and I missed a lot of findings. 🥹
+
+
+[08/20/2024 07:49] gd.eth
+Has anyone read this issue https://github.com/code-423n4/2024-07-munchables-findings/issues/256?
+I think we may have missed this incredibly critical issue (farm with no locked  funds). 🤣
+And it doesn't seem to be tagging with sponsor confirmed (won't fix it?)
+I'm really confused, does anyone know how the judges considered this?
+
+{Embed}
+https://github.com/code-423n4/2024-07-munchables-findings/issues/256?
+Landlord can lock their assets only for the time when harvesting · ...
+Lines of code https://github.com/code-423n4/2024-07-munchables/blob/main/src/managers/LandManager.sol#L228 Vulnerability details Impact Landlords can lock their assets for 1 block (only when harves...
+Code4rena - ARCHIVE-Q3-2024 - munchables-jul23 [1264356051415732224].txt_Files/256-0A796
+
+
+[08/20/2024 07:50] gd.eth
+@thebrittfactor | C4 need your help sir 🥹
+
+
+[08/20/2024 13:29] itsmetechjay
+It looks like the judge marked it as out of scope.
+
+
+[08/20/2024 13:49] gd.eth
+Thank you for your response! 🙏
+
+
+[08/20/2024 13:50] gd.eth
+However, this issue would actually affect the scope of the audited contract. 🤣 
+Additionally, issue #215 involves normal user behavior that causes the protocol to produce unintended results. 
+It's possible that the entry contract for user interaction is no longer within the audit scope, but there is no vulnerability in that entry contract itself. Instead, the impact occurs in the contract that is within the audit scope.
+
+
+[08/20/2024 13:50] gd.eth
+It would be advisable to have the sponsor or judge review this issue. At the very least, the sponsor should be made aware of the issue. 🥹
+
+{Reactions}
+😂 
+
+[08/20/2024 13:52] gd.eth
+This is actually an incredibly critical vulnerability.
+
+{Reactions}
+😂 🤣 
+
+[08/20/2024 13:53] gd.eth
+hope this can be resolved before the contract is deployed.
+
+
+[08/22/2024 20:52] itsmetechjay
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted on Friday, 30 August 2024.  Please make sure to grab anything you might need before then.
+
+
+[08/29/2024 15:25] itsmetechjay
+ℹ️ Reminder: this channel will be deleted after 24 hours.
+
+
+[08/30/2024 16:21] mylifechangefast.eth_70767
+Seneca typeshit
+
+
+==============================================================
+Exported 356 message(s)
+==============================================================
